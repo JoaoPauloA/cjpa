@@ -33,9 +33,6 @@ public class App {
                 System.out.println("Opção inválida.");
             }
         } while(op != 0);
-	
-		
-
 	}
 
 	public static void readLines() throws IOException {
