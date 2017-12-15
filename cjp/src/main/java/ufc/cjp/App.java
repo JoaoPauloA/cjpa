@@ -39,57 +39,55 @@ public class App {
 
 	public static void conversation() throws IOException {
 		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
-				
+
 		Scanner s = new Scanner(System.in);
 		String a, st;
 		String[] b;
-		System.out.println(rand());;
-		
-		
-	
+		int count = rand();
+		for (int i = 1; i < count; i++) {
+			c.readLine();
+		}
+		a = c.readLine();
+		System.out.println(a);
 
 	}
 
 	public static void insertWord() throws IOException {
 		Scanner s = new Scanner(System.in);
 		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
-				
+
 		String st;
 		System.out.println("informe a palavra ou frase a ser inserida");
 		st = s.nextLine() + ";";
 		System.out.println("resposta em português");
 		st += s.nextLine();
 		st += "\n";
-		
+
 		c.seek(c.length());
 		c.writeBytes(st);
-			
+
 	}
-	
+
 	public static int rand() throws IOException {
 		Random a = new Random(System.currentTimeMillis());
-			System.out.println("count line = "+countLine());
-		int valor = a.nextInt(countLine()+1);
-		if(valor == 0)
+		int valor = a.nextInt(countLine() + 1);
+		if (valor == 0)
 			return 1;
 		return valor;
 	}
-	
-	
-	
-	public static int countLine()throws IOException{
+
+	public static int countLine() throws IOException {
 		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
 		String a;
 		int count = 0;
-		while(true){
+		while (true) {
 			a = c.readLine();
-			if(a == null)
+			if (a == null)
 				break;
 			count++;
-			
+
 		}
 		return count;
 	}
-	
 
 }
