@@ -8,13 +8,15 @@ import java.util.Scanner;
 import org.xml.sax.ext.LexicalHandler;
 
 public class App {
+	static int contadora, cont;
 
 	public static void main(String[] args) throws IOException {
 		Scanner s = new Scanner(System.in);
+		contadora = countLine();
 		int op;
 
 		do {
-			System.out.println("1-Inseir  2-Conversation");
+			System.out.println("1-Inseir  2-Conversation  3-print count");
 			op = s.nextInt();
 
 			switch (op) {
@@ -24,6 +26,10 @@ public class App {
 
 			case 2:
 				conversation();
+				break;
+				
+			case 3:
+				printCount();
 				break;
 
 			case 0:
@@ -48,8 +54,13 @@ public class App {
 			c.readLine();
 		}
 		a = c.readLine();
-		System.out.println(a);
-
+		b = a.split(";");
+		System.out.println(">>> " + b[0]);
+		st = s.nextLine();
+		if (st.equals(b[1]))
+			System.out.println("ok");
+		else
+			System.out.println("não desista!");
 	}
 
 	public static void insertWord() throws IOException {
@@ -58,19 +69,23 @@ public class App {
 
 		String st;
 		System.out.println("informe a palavra ou frase a ser inserida");
-		st = s.nextLine() + ";";
+		st = s.next() + ";";
 		System.out.println("resposta em português");
-		st += s.nextLine();
+		st += s.next() + ";";
+		System.out.println("Descrição");
+		st += s.next();
 		st += "\n";
 
 		c.seek(c.length());
 		c.writeBytes(st);
+		contadora++;
 
 	}
 
 	public static int rand() throws IOException {
 		Random a = new Random(System.currentTimeMillis());
-		int valor = a.nextInt(countLine() + 1);
+		cont = contadora+1;
+		int valor = a.nextInt(cont);
 		if (valor == 0)
 			return 1;
 		return valor;
@@ -88,6 +103,9 @@ public class App {
 
 		}
 		return count;
+	}
+	public static void printCount() {
+		System.out.println(contadora);
 	}
 
 }
