@@ -27,7 +27,7 @@ public class App {
 			case 2:
 				conversation();
 				break;
-				
+
 			case 3:
 				printCount();
 				break;
@@ -50,17 +50,21 @@ public class App {
 		String a, st;
 		String[] b;
 		int count = rand();
+
 		for (int i = 1; i < count; i++) {
 			c.readLine();
 		}
+
 		a = c.readLine();
 		b = a.split(";");
 		System.out.println(">>> " + b[0]);
 		st = s.nextLine();
+
 		if (st.equals(b[1]))
 			System.out.println("ok");
 		else
 			System.out.println("não desista!");
+
 	}
 
 	public static void insertWord() throws IOException {
@@ -84,7 +88,7 @@ public class App {
 
 	public static int rand() throws IOException {
 		Random a = new Random(System.currentTimeMillis());
-		cont = contadora+1;
+		cont = contadora + 1;
 		int valor = a.nextInt(cont);
 		if (valor == 0)
 			return 1;
@@ -104,6 +108,7 @@ public class App {
 		}
 		return count;
 	}
+
 	public static void printCount() {
 		System.out.println(contadora);
 	}
