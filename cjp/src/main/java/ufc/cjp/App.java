@@ -5,8 +5,6 @@ import java.io.RandomAccessFile;
 import java.util.Random;
 import java.util.Scanner;
 
-import org.xml.sax.ext.LexicalHandler;
-
 public class App {
 	static int contadora, cont;
 
@@ -44,7 +42,7 @@ public class App {
 	}
 
 	public static void conversation() throws IOException {
-		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
+		RandomAccessFile c = new RandomAccessFile("C:/AppEnglish/exemplo.txt", "rw");
 
 		Scanner s = new Scanner(System.in);
 		String a, st;
@@ -69,15 +67,15 @@ public class App {
 
 	public static void insertWord() throws IOException {
 		Scanner s = new Scanner(System.in);
-		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
+		RandomAccessFile c = new RandomAccessFile("C:/AppEnglish/exemplo.txt", "rw");
 
 		String st;
 		System.out.println("informe a palavra ou frase a ser inserida");
-		st = s.next() + ";";
+		st = s.nextLine() + ";";
 		System.out.println("resposta em português");
-		st += s.next() + ";";
+		st += s.nextLine() + ";";
 		System.out.println("Descrição");
-		st += s.next();
+		st += s.nextLine();
 		st += "\n";
 
 		c.seek(c.length());
@@ -96,7 +94,7 @@ public class App {
 	}
 
 	public static int countLine() throws IOException {
-		RandomAccessFile c = new RandomAccessFile("/home/joaopaulo/Documentos/AppEnglish/exemplo.txt", "rw");
+		RandomAccessFile c = new RandomAccessFile("C:/AppEnglish/exemplo.txt", "rw");
 		String a;
 		int count = 0;
 		while (true) {
