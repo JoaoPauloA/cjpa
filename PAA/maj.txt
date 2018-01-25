@@ -1,4 +1,4 @@
-
+//programa retorna o elemento majoritário de um vetor
   if(x == 0 && y == 0) return 0;
 
   if(x == y)return x;
