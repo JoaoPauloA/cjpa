@@ -1,0 +1,6 @@
+instalação e manipulação git
+1. Instalação (apt-get install git)
+	1.1 verificação da instalação(git --version)
+2. Configuração(git config --global user.name "nome"
+				git config --global user.email "email")
+	2.2 verificação de informações(git config --list)
